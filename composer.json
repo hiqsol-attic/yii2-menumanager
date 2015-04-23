@@ -39,7 +39,7 @@
         }
     ],
     "require": {
-        "hiqdev/yii2-collection": "dev-master"
+        "hiqdev/yii2-collection": "*"
     },
     "autoload": {
         "psr-4": {
