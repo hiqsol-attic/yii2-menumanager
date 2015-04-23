@@ -40,7 +40,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "hiqdev/yii2-collection": "*"
+        "hiqdev/yii2-collection": "*@dev"
     },
     "autoload": {
         "psr-4": {
