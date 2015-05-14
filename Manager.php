@@ -7,6 +7,10 @@
 
 namespace hiqdev\menumanager;
 
+use Yii;
+use yii\base\BootstrapInterface;
+use yii\helpers\StringHelper;
+
 /**
  * Menu Manager
  *
@@ -39,16 +43,36 @@ namespace hiqdev\menumanager;
  *     'active' => Yii::$app->request->url === Yii::$app->homeUrl
  * ],['after'=>'header']);
  *
- * Yii::$app->menuManager->breadcrumbs->madd([
+ * Yii::$app->menuManager->breadcrumbs->setItems([
  *     ['label' => Yii::t('app', 'Domains'), 'url' => ['index']],
- *     ['label' => $this->title],
+ *     $this->title,
  * ]);
  * ~~~
  */
-class Manager extends \hiqdev\collection\Manager
+class Manager extends \hiqdev\collection\Manager implements BootstrapInterface
 {
     /**
      * @inheritdoc
      */
-    public $itemClass = 'hiqdev\menumanager\Menu';
+    protected $_itemClass = 'hiqdev\menumanager\Menu';
+
+    public function bootstrap($app)
+    {
+        /// XXX REALLY NEEDS CACHING !!!
+        foreach ($app->extensions as $name => $extension) {
+            foreach ($extension['alias'] as $alias => $path) {
+                $file = "$path/Menu.php";
+                if (!file_exists($file)) {
+                    continue;
+                }
+                $class = strtr(substr($alias,1) . '/' . 'Menu', '/','\\');
+                $ref = new \ReflectionClass($class);
+                if (    $ref->isSubclassOf('hiqdev\menumanager\Menu')
+                    &&  $ref->implementsInterface('yii\base\BootstrapInterface')
+                ) {
+                    Yii::createObject($class)->bootstrap($app);
+                }
+            }
+        }
+    }
 }
