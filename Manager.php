@@ -58,21 +58,15 @@ class Manager extends \hiqdev\collection\Manager implements BootstrapInterface
 
     public function bootstrap($app)
     {
-        /// XXX REALLY NEEDS CACHING !!!
-        foreach ($app->extensions as $name => $extension) {
-            foreach ($extension['alias'] as $alias => $path) {
-                $file = "$path/Menu.php";
-                if (!file_exists($file)) {
-                    continue;
-                }
-                $class = strtr(substr($alias,1) . '/' . 'Menu', '/','\\');
-                $ref = new \ReflectionClass($class);
-                if (    $ref->isSubclassOf('hiqdev\menumanager\Menu')
-                    &&  $ref->implementsInterface('yii\base\BootstrapInterface')
-                ) {
-                    Yii::createObject($class)->bootstrap($app);
-                }
+        $cached = null;
+        if ($cached) {
+            $app->menuManager->mset($cached);
+        } else {
+            foreach ($app->pluginManager->menus as $config) {
+                $menu = Yii::createObject($config);
+                $this->{$menu->addTo}->addItems($menu->items, $menu->where);
             }
+            $cached = $this->toArray();
         }
     }
 }

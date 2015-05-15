@@ -53,4 +53,35 @@ class Menu extends \hiqdev\collection\Manager
     {
         return $this->toArray()['items'];
     }
+
+    /**
+     * @var string which menu to add to
+     */
+    protected $_addTo;
+
+    /**
+     * Getter for addTo.
+     *
+     * @return string add to
+     */
+    public function getAddTo()
+    {
+        return $this->_addTo;
+    }
+
+    /**
+     * @var array where definition.
+     */
+    protected $_where = [];
+
+    /**
+     * Getter for where.
+     *
+     * @return array where.
+     */
+    public function getWhere()
+    {
+        return $this->_where;
+    }
+
 }
