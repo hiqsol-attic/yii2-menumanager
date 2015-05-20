@@ -56,8 +56,20 @@ class Manager extends \hiqdev\collection\Manager implements BootstrapInterface
      */
     protected $_itemClass = 'hiqdev\menumanager\Menu';
 
+    /**
+     * @var boolean is already bootstrapped.
+     */
+    protected $_isBootstrapped = false;
+
+    /**
+     * @inheritdoc
+     */
     public function bootstrap($app)
     {
+        if ($this->_isBootstrapped) {
+            return;
+        }
+        $app->pluginManager->bootstrap($app);
         $cached = null;
         if ($cached) {
             $app->menuManager->mset($cached);
@@ -68,5 +80,6 @@ class Manager extends \hiqdev\collection\Manager implements BootstrapInterface
             }
             $cached = $this->toArray();
         }
+        $this->_isBootstrapped = true;
     }
 }
