@@ -18,7 +18,7 @@ use yii\helpers\StringHelper;
  * ~~~
  * 'components' => [
  *     'menuManager' => [
- *         'class' => 'hiqdev\menumanager\Manager',
+ *         'class' => 'hiqdev\menumanager\MenuManager',
  *         'items' => [
  *             'main'        => [],
  *             'sidebar'     => [
@@ -49,7 +49,7 @@ use yii\helpers\StringHelper;
  * ]);
  * ~~~
  */
-class Manager extends \hiqdev\collection\Manager implements BootstrapInterface
+class MenuManager extends \hiqdev\collection\Manager implements BootstrapInterface
 {
     /**
      * @inheritdoc
