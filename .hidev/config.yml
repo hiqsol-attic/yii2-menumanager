@@ -1,0 +1,16 @@
+parent:
+    github:         hiqdev/hidev-config
+
+package:
+    name:           yii2-menumanager
+    namespace:      hiqdev\menumanager
+    label:          MenuManager
+    title:          Menu Manager for Yii2
+    type:           yii2-extension
+    keywords:       menu, manager, extension, yii2
+    description:    Menu Manager with auto loading from extension, and widgets
+    year:           2015
+
+composer.json:
+    require:
+        hiqdev/yii2-pluginmanager:      "*@dev"
