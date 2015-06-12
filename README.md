@@ -1,7 +1,7 @@
-Menu Manager for Yii 2
-----------------------
+Menu Manager for Yii2
+---------------------
 
-Component to collect menu from modules
+Menu Manager with auto loading from extension, and widgets
 
 For more info see wiki:
 https://github.com/hiqdev/yii2-menumanager/wiki
