@@ -4,6 +4,7 @@ hiqdev/yii2-menumanager commits history
 ## Under development
 
 - Changed: moved to src
+    - bb28b9f 2015-08-26 php-cs-fixed (sol@hiqdev.com)
     - c310c30 2015-08-26 moved to src (sol@hiqdev.com)
 - Fixed PHP warnings
     - 79090a7 2015-08-26 fixed PHP warning (sol@hiqdev.com)
