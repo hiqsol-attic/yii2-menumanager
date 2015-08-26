@@ -3,6 +3,7 @@ hiqdev/yii2-menumanager commits history
 
 ## Under development
 
+    - 79090a7 2015-08-26 fixed PHP warning (sol@hiqdev.com)
 - hideved
     - 0f5e627 2015-06-12 hideved (sol@hiqdev.com)
     - 14a43d5 2015-06-12 hideved (sol@hiqdev.com)
