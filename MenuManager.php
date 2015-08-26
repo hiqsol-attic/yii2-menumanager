@@ -74,9 +74,11 @@ class MenuManager extends \hiqdev\collection\Manager implements BootstrapInterfa
         if ($cached) {
             $app->menuManager->mset($cached);
         } else {
-            foreach ($app->pluginManager->menus as $config) {
-                $menu = Yii::createObject($config);
-                $this->{$menu->addTo}->addItems($menu->items, $menu->where);
+            if (is_array($app->pluginManager->menus)) {
+                foreach ($app->pluginManager->menus as $config) {
+                    $menu = Yii::createObject($config);
+                    $this->{$menu->addTo}->addItems($menu->items, $menu->where);
+                }
             }
             $cached = $this->toArray();
         }
