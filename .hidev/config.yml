@@ -1,6 +1,3 @@
-parent:
-    github:         hiqdev/hidev-config
-
 package:
     name:           yii2-menumanager
     namespace:      hiqdev\menumanager
@@ -11,6 +8,6 @@ package:
     description:    Menu Manager with auto loading from extension, and widgets
     year:           2015
 
-composer.json:
-    require:
-        hiqdev/yii2-pluginmanager:      "*@dev"
+require:
+    hiqdev/hidev-config:        "*"
+    hiqdev/hidev-config-php:    "*"
