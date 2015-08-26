@@ -1,8 +1,12 @@
 <?php
-/**
- * @link    http://hiqdev.com/yii2-menumanager
- * @license http://hiqdev.com/yii2-menumanager/license
- * @copyright Copyright (c) 2015 HiQDev
+
+/*
+ * Menu Manager for Yii2
+ *
+ * @link      https://github.com/hiqdev/yii2-menumanager
+ * @package   yii2-menumanager
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hiqdev\menumanager;
@@ -10,13 +14,12 @@ namespace hiqdev\menumanager;
 use Yii;
 
 /**
- * Menu is a manageable collection of child [[Menu]]s
+ * Menu is a manageable collection of child [[Menu]]s.
  */
 class Menu extends \hiqdev\collection\Manager
 {
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected $_itemClass = 'hiqdev\menumanager\Menu';
 
@@ -37,9 +40,9 @@ class Menu extends \hiqdev\collection\Manager
 
     public function fields()
     {
-        $keys = Yii::getObjectVars($this);
+        $keys          = Yii::getObjectVars($this);
         $keys['items'] = $this->_items;
-        $fields = [];
+        $fields        = [];
         foreach ($keys as $k => $v) {
             if (!empty($v)) {
                 $fields[$k] = $k;
@@ -83,5 +86,4 @@ class Menu extends \hiqdev\collection\Manager
     {
         return $this->_where;
     }
-
 }

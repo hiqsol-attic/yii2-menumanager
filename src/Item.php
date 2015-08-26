@@ -1,19 +1,23 @@
 <?php
-/**
- * @link    http://hiqdev.com/yii2-menumanager
- * @license http://hiqdev.com/yii2-menumanager/license
- * @copyright Copyright (c) 2015 HiQDev
+
+/*
+ * Menu Manager for Yii2
+ *
+ * @link      https://github.com/hiqdev/yii2-menumanager
+ * @package   yii2-menumanager
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hiqdev\menumanager;
 
 /**
- * Menu Item
+ * Menu Item.
  */
 class Item extends \hiqdev\collection\Manager
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public $itemClass = 'hiqdev\menumanager\Item';
 

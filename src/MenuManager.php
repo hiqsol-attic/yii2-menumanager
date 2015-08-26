@@ -1,18 +1,21 @@
 <?php
-/**
- * @link    http://hiqdev.com/yii2-menumanager
- * @license http://hiqdev.com/yii2-menumanager/license
- * @copyright Copyright (c) 2015 HiQDev
+
+/*
+ * Menu Manager for Yii2
+ *
+ * @link      https://github.com/hiqdev/yii2-menumanager
+ * @package   yii2-menumanager
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
  */
 
 namespace hiqdev\menumanager;
 
 use Yii;
 use yii\base\BootstrapInterface;
-use yii\helpers\StringHelper;
 
 /**
- * Menu Manager
+ * Menu Manager.
  *
  * Usage, in config:
  * ~~~
@@ -52,17 +55,17 @@ use yii\helpers\StringHelper;
 class MenuManager extends \hiqdev\collection\Manager implements BootstrapInterface
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected $_itemClass = 'hiqdev\menumanager\Menu';
 
     /**
-     * @var boolean is already bootstrapped.
+     * @var bool is already bootstrapped.
      */
     protected $_isBootstrapped = false;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function bootstrap($app)
     {
