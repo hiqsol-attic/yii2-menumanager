@@ -3,6 +3,10 @@ hiqdev/yii2-menumanager commits history
 
 ## Under development
 
+- Added Menu widget
+    - b17cebe 2015-09-14 + Menu widget (sol@hiqdev.com)
+- Added Menu::items() for defining default items with function when statically not enough
+    - 3059361 2015-09-14 + items() for defining default items with function when statically not enough (sol@hiqdev.com)
 - Changed: moved to src
     - bb28b9f 2015-08-26 php-cs-fixed (sol@hiqdev.com)
     - c310c30 2015-08-26 moved to src (sol@hiqdev.com)

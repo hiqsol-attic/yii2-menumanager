@@ -5,6 +5,7 @@ Menu Manager with auto loading from extension, and widgets
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/yii2-menumanager/v/stable.png)](https://packagist.org/packages/hiqdev/yii2-menumanager)
 [![Total Downloads](https://poser.pugx.org/hiqdev/yii2-menumanager/downloads.png)](https://packagist.org/packages/hiqdev/yii2-menumanager)
+[![Dependency Status](https://www.versioneye.com/php/hiqdev:yii2-menumanager/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:yii2-menumanager/dev-master)
 
 ## Installation
 
