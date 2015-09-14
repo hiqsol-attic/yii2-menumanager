@@ -16,7 +16,7 @@ use Yii;
 /**
  * Menu is a manageable collection of child [[Menu]]s.
  */
-class Menu extends \hiqdev\collection\Manager
+class Menu extends \hiqdev\collection\Object
 {
     /**
      * {@inheritdoc}
@@ -58,7 +58,7 @@ class Menu extends \hiqdev\collection\Manager
     }
 
     /**
-     * @var string which menu to add to
+     * @var string which menu to add to.
      */
     protected $_addTo;
 
@@ -73,7 +73,7 @@ class Menu extends \hiqdev\collection\Manager
     }
 
     /**
-     * @var array where definition.
+     * @var array where in the menu to add to.
      */
     protected $_where = [];
 
@@ -85,5 +85,24 @@ class Menu extends \hiqdev\collection\Manager
     public function getWhere()
     {
         return $this->_where;
+    }
+
+    /**
+     * Default items.
+     *
+     * @return array
+     */
+    public function items()
+    {
+        return [];
+    }
+
+    /**
+     * Inits with default items.
+     */
+    public function init()
+    {
+        parent::init();
+        $this->addItems($this->items());
     }
 }
