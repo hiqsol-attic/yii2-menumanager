@@ -12,6 +12,7 @@
 namespace hiqdev\menumanager;
 
 use Yii;
+use yii\base\Application;
 use yii\base\BootstrapInterface;
 
 /**
@@ -72,19 +73,18 @@ class MenuManager extends \hiqdev\collection\Manager implements BootstrapInterfa
         if ($this->_isBootstrapped) {
             return;
         }
+        Yii::trace('Bootstrap menus', get_called_class() . '::bootstrap');
         $app->pluginManager->bootstrap($app);
-        $cached = null;
-        if ($cached) {
-            $app->menuManager->mset($cached);
-        } else {
-            if (is_array($app->pluginManager->menus)) {
-                foreach ($app->pluginManager->menus as $config) {
-                    $menu = Yii::createObject($config);
-                    $this->{$menu->addTo}->addItems($menu->items, $menu->where);
-                }
+
+        if (is_array($app->pluginManager->menus)) {
+            Yii::trace('Loading menus from plugins', get_called_class() . '::bootstrap');
+            foreach ($app->pluginManager->menus as $config) {
+                $menu = Yii::createObject($config);
+                $this->{$menu->addTo}->addItems($menu->items, $menu->where);
             }
-            $cached = $this->toArray();
         }
+        $this->toArray();
+
         $this->_isBootstrapped = true;
     }
 }
