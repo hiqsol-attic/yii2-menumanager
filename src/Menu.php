@@ -16,7 +16,7 @@ use Yii;
 /**
  * Menu is a manageable collection of child [[Menu]]s.
  */
-class Menu extends \hiqdev\collection\Object
+class Menu extends \hiqdev\yii2\collection\Object
 {
     /**
      * {@inheritdoc}

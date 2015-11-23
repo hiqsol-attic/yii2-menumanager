@@ -14,7 +14,7 @@ namespace hiqdev\menumanager;
 /**
  * Menu Item.
  */
-class Item extends \hiqdev\collection\Manager
+class Item extends \hiqdev\yii2\collection\Manager
 {
     /**
      * {@inheritdoc}

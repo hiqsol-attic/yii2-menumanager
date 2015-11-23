@@ -53,7 +53,7 @@ use yii\base\BootstrapInterface;
  * ]);
  * ~~~
  */
-class MenuManager extends \hiqdev\collection\Manager implements BootstrapInterface
+class MenuManager extends \hiqdev\yii2\collection\Manager implements BootstrapInterface
 {
     /**
      * {@inheritdoc}
