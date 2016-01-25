@@ -30,6 +30,32 @@ class Menu extends \yii\widgets\Menu
     public $defaultIcon = 'fa-angle-double-right';
 
     /**
+     * Try to guess which module is parent for current page
+     * and remain sidebarmenu accordion opened
+     *
+     * @param array $item
+     * @return bool
+     */
+    protected function guessModule(array $item)
+    {
+        $result = false;
+        $moduleId = Yii::$app->controller->module->id;
+        if (!empty($item['items'])) {
+            foreach ($item['items'] as $i) {
+                if (isset($i['url'])) {
+                    $parts = explode('/', reset($i['url']));
+                    if ($parts[1] === $moduleId) {
+                        $result = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        return $result;
+    }
+
+    /**
      * @inheritdoc
      */
     protected function renderItems($items)
@@ -40,7 +66,7 @@ class Menu extends \yii\widgets\Menu
             $options = array_merge($this->itemOptions, ArrayHelper::getValue($item, 'options', []));
             $tag = ArrayHelper::remove($options, 'tag', 'li');
             $class = [];
-            if ($item['active']) {
+            if ($item['active'] || $this->guessModule($item) ) {
                 $class[] = $this->activeCssClass;
             }
             if ($i === 0 && $this->firstItemCssClass !== null) {
