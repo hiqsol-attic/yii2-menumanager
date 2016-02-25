@@ -8,7 +8,6 @@ Yii2 Menu Manager
 [![Build Status](https://img.shields.io/travis/hiqdev/yii2-menumanager.svg)](https://travis-ci.org/hiqdev/yii2-menumanager)
 [![Code Coverage](https://scrutinizer-ci.com/g/hiqdev/yii2-menumanager/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/hiqdev/yii2-menumanager/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hiqdev/yii2-menumanager/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/hiqdev/yii2-menumanager/?branch=master)
-[![Dependency Status](https://www.versioneye.com/php/hiqdev:yii2-menumanager/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:yii2-menumanager/dev-master)
 
 Menu Manager with auto loading from extension, and widgets
 

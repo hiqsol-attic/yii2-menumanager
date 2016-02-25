@@ -3,6 +3,11 @@ hiqdev/yii2-menumanager commits history
 
 ## Under development
 
+- Changed to be used without `yii2-pluginmanager`
+    - 5b00b14 2016-02-25 removed dependency on plugin manager (sol@hiqdev.com)
+    - 97de71f 2016-02-25 inited tests (sol@hiqdev.com)
+    - 8b713be 2016-02-25 phpcsfixed (sol@hiqdev.com)
+    - 3cc386c 2016-02-25 rehideved (sol@hiqdev.com)
     - 6a3ea2f 2016-01-25 Try to guess which module is parent for current page and ramin accordion opened (andreyklochok@gmail.com)
     - 6865ada 2015-11-23 Changed namespace to yii2-collection (d.naumenko.a@gmail.com)
     - ecd10d8 2015-11-05 Placeholders for cacheing removed (d.naumenko.a@gmail.com)
@@ -13,7 +18,6 @@ hiqdev/yii2-menumanager commits history
 - Changed: moved to src
     - bb28b9f 2015-08-26 php-cs-fixed (sol@hiqdev.com)
     - c310c30 2015-08-26 moved to src (sol@hiqdev.com)
-- Fixed PHP warnings
     - 79090a7 2015-08-26 fixed PHP warning (sol@hiqdev.com)
 - Added basics
     - 0f5e627 2015-06-12 hideved (sol@hiqdev.com)
