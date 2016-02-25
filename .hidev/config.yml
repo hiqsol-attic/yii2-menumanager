@@ -1,13 +1,12 @@
 package:
-    name:           yii2-menumanager
-    namespace:      hiqdev\menumanager
-    label:          MenuManager
-    title:          Menu Manager for Yii2
     type:           yii2-extension
+    name:           yii2-menumanager
+    title:          Menu Manager for Yii2
+    headline:       Yii2 Menu Manager
     keywords:       menu, manager, extension, yii2
+    namespace:      hiqdev\menumanager
     description:    Menu Manager with auto loading from extension, and widgets
-    year:           2015
 
 require:
-    hiqdev/hidev-config:        "*"
-    hiqdev/hidev-config-php:    "*"
+    hiqdev/hidev-php:    "*"
+    hiqdev/hidev-vendor: "*"

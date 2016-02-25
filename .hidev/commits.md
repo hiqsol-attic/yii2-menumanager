@@ -3,6 +3,9 @@ hiqdev/yii2-menumanager commits history
 
 ## Under development
 
+    - 6a3ea2f 2016-01-25 Try to guess which module is parent for current page and ramin accordion opened (andreyklochok@gmail.com)
+    - 6865ada 2015-11-23 Changed namespace to yii2-collection (d.naumenko.a@gmail.com)
+    - ecd10d8 2015-11-05 Placeholders for cacheing removed (d.naumenko.a@gmail.com)
 - Added Menu widget
     - b17cebe 2015-09-14 + Menu widget (sol@hiqdev.com)
 - Added Menu::items() for defining default items with function when statically not enough
