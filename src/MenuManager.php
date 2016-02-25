@@ -6,13 +6,12 @@
  * @link      https://github.com/hiqdev/yii2-menumanager
  * @package   yii2-menumanager
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
+ * @copyright Copyright (c) 2015-2016, HiQDev (http://hiqdev.com/)
  */
 
 namespace hiqdev\menumanager;
 
 use Yii;
-use yii\base\Application;
 use yii\base\BootstrapInterface;
 
 /**

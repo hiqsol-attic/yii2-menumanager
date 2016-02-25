@@ -1,19 +1,27 @@
 <?php
 
+/*
+ * Menu Manager for Yii2
+ *
+ * @link      https://github.com/hiqdev/yii2-menumanager
+ * @package   yii2-menumanager
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2015-2016, HiQDev (http://hiqdev.com/)
+ */
+
 namespace hiqdev\menumanager\widgets;
 
 use Closure;
 use Yii;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Url;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
- * Enhanced menu widget with icons, visible callback
+ * Enhanced menu widget with icons, visible callback.
  */
 class Menu extends \yii\widgets\Menu
 {
-
     /**
      * @var string Class that will be added for parents "li"
      */
@@ -31,7 +39,7 @@ class Menu extends \yii\widgets\Menu
 
     /**
      * Try to guess which module is parent for current page
-     * and remain sidebarmenu accordion opened
+     * and remain sidebarmenu accordion opened.
      *
      * @param array $item
      * @return bool
@@ -56,7 +64,7 @@ class Menu extends \yii\widgets\Menu
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function renderItems($items)
     {
@@ -66,7 +74,7 @@ class Menu extends \yii\widgets\Menu
             $options = array_merge($this->itemOptions, ArrayHelper::getValue($item, 'options', []));
             $tag = ArrayHelper::remove($options, 'tag', 'li');
             $class = [];
-            if ($item['active'] || $this->guessModule($item) ) {
+            if ($item['active'] || $this->guessModule($item)) {
                 $class[] = $this->activeCssClass;
             }
             if ($i === 0 && $this->firstItemCssClass !== null) {
@@ -96,13 +104,13 @@ class Menu extends \yii\widgets\Menu
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function renderItem($item)
     {
         return strtr(ArrayHelper::getValue($item, 'template', isset($item['url']) ? $this->linkTemplate : $this->labelTemplate), [
             '{url}'   => isset($item['url']) ? Url::to($item['url']) : null,
-            '{icon}'  => $item['icon'] === false ? '' : sprintf("<i class=\"%s\"></i>", static::iconClass($item['icon'] ?: $this->defaultIcon)),
+            '{icon}'  => $item['icon'] === false ? '' : sprintf('<i class="%s"></i>', static::iconClass($item['icon'] ?: $this->defaultIcon)),
             '{label}' => $item['label'],
             '{arrow}' => !empty($item['items']) ? '<i class="fa pull-right fa-angle-left"></i>' : '',
         ]);
@@ -114,7 +122,7 @@ class Menu extends \yii\widgets\Menu
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function normalizeItems($items, &$active)
     {
@@ -125,5 +133,4 @@ class Menu extends \yii\widgets\Menu
         }
         return parent::normalizeItems($items, $active);
     }
-
 }
