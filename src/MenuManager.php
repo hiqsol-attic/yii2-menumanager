@@ -64,6 +64,8 @@ class MenuManager extends \hiqdev\yii2\collection\Manager implements BootstrapIn
      */
     protected $_isBootstrapped = false;
 
+    public $menus = [];
+
     /**
      * {@inheritdoc}
      */
@@ -72,15 +74,9 @@ class MenuManager extends \hiqdev\yii2\collection\Manager implements BootstrapIn
         if ($this->_isBootstrapped) {
             return;
         }
-        Yii::trace('Bootstrap menus', get_called_class() . '::bootstrap');
-        $app->pluginManager->bootstrap($app);
-
-        if (is_array($app->pluginManager->menus)) {
-            Yii::trace('Loading menus from plugins', get_called_class() . '::bootstrap');
-            foreach ($app->pluginManager->menus as $config) {
-                $menu = Yii::createObject($config);
-                $this->{$menu->addTo}->addItems($menu->items, $menu->where);
-            }
+        foreach ($this->menus as $config) {
+            $menu = Yii::createObject($config);
+            $this->{$menu->addTo}->addItems($menu->items, $menu->where);
         }
         $this->toArray();
 
