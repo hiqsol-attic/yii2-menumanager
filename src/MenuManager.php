@@ -17,8 +17,8 @@ use yii\base\BootstrapInterface;
 /**
  * Menu Manager.
  *
- * Usage, in config:
- * ~~~
+ * Configuration:
+ * ```
  * 'components' => [
  *     'menuManager' => [
  *         'class' => 'hiqdev\menumanager\MenuManager',
@@ -27,7 +27,7 @@ use yii\base\BootstrapInterface;
  *             'sidebar'     => [
  *                 'items' => [
  *                     'header' => [
- *                         'label' => Yii::t('app', 'MAIN NAVIGATION'),
+ *                         'label' => 'MAIN NAVIGATION',
  *                         'options' => ['class' => 'header'],
  *                     ],
  *                 ],
@@ -36,9 +36,10 @@ use yii\base\BootstrapInterface;
  *         ],
  *     ]
  * ]
- * ~~~
- * Usage, in code:
- * ~~~
+ * ```
+ *
+ * Usage:
+ * ```
  * Yii::$app->menuManager->sidebar->add([
  *     'label'  => 'Dashboard',
  *     'url'    => ['/hipanel'],
@@ -47,10 +48,10 @@ use yii\base\BootstrapInterface;
  * ],['after'=>'header']);
  *
  * Yii::$app->menuManager->breadcrumbs->setItems([
- *     ['label' => Yii::t('app', 'Domains'), 'url' => ['index']],
+ *     ['label' => 'Domains', 'url' => ['index']],
  *     $this->title,
  * ]);
- * ~~~
+ * ```
  */
 class MenuManager extends \hiqdev\yii2\collection\Manager implements BootstrapInterface
 {
