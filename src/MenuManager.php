@@ -12,7 +12,6 @@
 namespace hiqdev\menumanager;
 
 use Yii;
-use yii\base\BootstrapInterface;
 
 /**
  * Menu Manager.
@@ -53,34 +52,43 @@ use yii\base\BootstrapInterface;
  * ]);
  * ```
  */
-class MenuManager extends \hiqdev\yii2\collection\Manager implements BootstrapInterface
+class MenuManager extends \hiqdev\yii2\collection\Manager
 {
     /**
      * {@inheritdoc}
      */
-    protected $_itemClass = 'hiqdev\menumanager\Menu';
+    protected $_itemClass = Menu::class;
 
     /**
-     * @var bool is already bootstrapped.
+     * @var bool is already inited.
      */
-    protected $_isBootstrapped = false;
+    protected $_isInited = false;
 
     public $menus = [];
 
     /**
      * {@inheritdoc}
      */
-    public function bootstrap($app)
+    public function init()
     {
-        if ($this->_isBootstrapped) {
+        if ($this->_isInited) {
             return;
         }
         foreach ($this->menus as $config) {
             $menu = Yii::createObject($config);
             $this->{$menu->addTo}->addItems($menu->items, $menu->where);
         }
-        $this->toArray();
+        #$this->toArray();
 
-        $this->_isBootstrapped = true;
+        $this->_isInited = true;
+    }
+
+    public function render($name, $options = [])
+    {
+        $class = $options['class'] ?: \yii\widgets\Menu::class;
+        unset($options['class']);
+        $options['items'] = array_values($this->get($name)->items);
+
+        return $class::widget($options);
     }
 }
