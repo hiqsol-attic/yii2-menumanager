@@ -46,5 +46,10 @@
         "psr-4": {
             "hiqdev\\menumanager\\": "src"
         }
+    },
+    "extra": {
+        "config-plugin": {
+            "hisite": "src/config/hisite.php"
+        }
     }
 }
