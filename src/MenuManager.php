@@ -85,10 +85,6 @@ class MenuManager extends \hiqdev\yii2\collection\Manager
 
     public function render($name, $options = [])
     {
-        $class = $options['class'] ?: \yii\widgets\Menu::class;
-        unset($options['class']);
-        $options['items'] = array_values($this->get($name)->items);
-
-        return $class::widget($options);
+        return $this->get($name)->render($options);
     }
 }

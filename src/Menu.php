@@ -105,4 +105,16 @@ class Menu extends \hiqdev\yii2\collection\Object
         parent::init();
         $this->addItems($this->items());
     }
+
+    public function render($options = [])
+    {
+        if (!is_array($options)) {
+            $options = ['class' => $options];
+        }
+        $class = $options['class'] ?: \yii\widgets\Menu::class;
+        unset($options['class']);
+        $options['items'] = array_values($this->getItems());
+
+        return $class::widget($options);
+    }
 }
