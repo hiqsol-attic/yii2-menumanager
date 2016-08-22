@@ -21,7 +21,7 @@ class Menu extends \hiqdev\yii2\collection\Object
     /**
      * {@inheritdoc}
      */
-    protected $_itemClass = 'hiqdev\menumanager\Menu';
+    protected $_itemClass = Menu::class;
 
     public function setSaveToView($name)
     {
