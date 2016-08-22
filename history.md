@@ -1,9 +1,11 @@
 hiqdev/yii2-menumanager
 -----------------------
 
-## [Under development]
+## [0.0.1] - 2016-08-22
 
 - Added `render()`
+    - [256e474] 2016-08-22 csfixed [sol@hiqdev.com]
+    - [ab3794e] 2016-08-22 changed to `chkipper` [sol@hiqdev.com]
     - [9bae54b] 2016-08-19 + render() to Menu class [sol@hiqdev.com]
     - [8160f97] 2016-08-19 added render and redone bootstrapping to initing [sol@hiqdev.com]
 - Changed to `composer-config-plugin` instead of `yii2-pluginmanager`
@@ -39,7 +41,6 @@ hiqdev/yii2-menumanager
     - [d73b106] 2015-04-23 + require hiqdev/yii2-collection [sol@hiqdev.com]
     - [d6ad547] 2015-04-22 doc [sol@hiqdev.com]
     - [e30a46d] 2015-04-22 inited [sol@hiqdev.com]
-## Development started April 22, 2015
 
 ## [Development started] - 2015-04-22
 
@@ -74,3 +75,5 @@ hiqdev/yii2-menumanager
 [917ae49]: https://github.com/hiqdev/yii2-menumanager/commit/917ae49
 [09f3463]: https://github.com/hiqdev/yii2-menumanager/commit/09f3463
 [e262927]: https://github.com/hiqdev/yii2-menumanager/commit/e262927
+[256e474]: https://github.com/hiqdev/yii2-menumanager/commit/256e474
+[ab3794e]: https://github.com/hiqdev/yii2-menumanager/commit/ab3794e

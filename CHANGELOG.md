@@ -1,7 +1,7 @@
 hiqdev/yii2-menumanager
 -----------------------
 
-## [Under development]
+## [0.0.1] - 2016-08-22
 
 - Added `render()`
 - Changed to `composer-config-plugin` instead of `yii2-pluginmanager`
