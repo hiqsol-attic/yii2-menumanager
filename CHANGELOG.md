@@ -1,13 +1,12 @@
-hiqdev/yii2-menumanager changelog
----------------------------------
+hiqdev/yii2-menumanager
+-----------------------
 
-## Under development
+## [Under development]
 
-- Changed to be used without `yii2-pluginmanager`
+- Added `render()`
+- Changed to `composer-config-plugin` instead of `yii2-pluginmanager`
 - Added Menu widget
 - Added Menu::items() for defining default items with function when statically not enough
-- Changed: moved to src
 - Added basics
 
-## Development started April 22, 2015
-
+## [Development started] - 2015-04-22
