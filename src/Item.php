@@ -21,23 +21,11 @@ class Item extends \hiqdev\yii2\collection\Manager
      */
     public $itemClass = 'hiqdev\menumanager\Item';
 
-    /**
-     *
-     */
     public $label;
 
-    /**
-     *
-     */
     public $url;
 
-    /**
-     *
-     */
     public $icon;
 
-    /**
-     *
-     */
     public $active;
 }

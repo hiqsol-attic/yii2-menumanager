@@ -5,8 +5,8 @@ package:
     headline:       Yii2 Menu Manager
     keywords:       yii2, menu, manager
     namespace:      hiqdev\menumanager
-    description:    Menu Manager with auto loading from extension, and widgets
+    description:    |
+        Features planned to provide:
 
-require:
-    hiqdev/hidev-php:    "*"
-    hiqdev/hidev-vendor: "*"
+        - auto loading and assembling menus from extensions
+        - widgets

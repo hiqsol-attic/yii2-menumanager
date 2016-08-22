@@ -21,16 +21,13 @@ class Menu extends \hiqdev\yii2\collection\Object
     /**
      * {@inheritdoc}
      */
-    protected $_itemClass = Menu::class;
+    protected $_itemClass = self::class;
 
     public function setSaveToView($name)
     {
         Yii::$app->view->$name = $this;
     }
 
-    /**
-     *
-     */
     public $label;
     public $url;
     public $icon;
@@ -40,9 +37,9 @@ class Menu extends \hiqdev\yii2\collection\Object
 
     public function fields()
     {
-        $keys          = Yii::getObjectVars($this);
+        $keys = Yii::getObjectVars($this);
         $keys['items'] = $this->_items;
-        $fields        = [];
+        $fields = [];
         foreach ($keys as $k => $v) {
             if (!empty($v)) {
                 $fields[$k] = $k;
@@ -58,7 +55,7 @@ class Menu extends \hiqdev\yii2\collection\Object
     }
 
     /**
-     * @var string which menu to add to.
+     * @var string which menu to add to
      */
     protected $_addTo;
 
@@ -73,14 +70,14 @@ class Menu extends \hiqdev\yii2\collection\Object
     }
 
     /**
-     * @var array where in the menu to add to.
+     * @var array where in the menu to add to
      */
     protected $_where = [];
 
     /**
      * Getter for where.
      *
-     * @return array where.
+     * @return array where
      */
     public function getWhere()
     {

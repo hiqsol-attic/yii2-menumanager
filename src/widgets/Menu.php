@@ -109,8 +109,8 @@ class Menu extends \yii\widgets\Menu
     protected function renderItem($item)
     {
         return strtr(ArrayHelper::getValue($item, 'template', isset($item['url']) ? $this->linkTemplate : $this->labelTemplate), [
-            '{url}'   => isset($item['url']) ? Url::to($item['url']) : null,
-            '{icon}'  => $item['icon'] === false ? '' : sprintf('<i class="%s"></i>', static::iconClass($item['icon'] ?: $this->defaultIcon)),
+            '{url}' => isset($item['url']) ? Url::to($item['url']) : null,
+            '{icon}' => $item['icon'] === false ? '' : sprintf('<i class="%s"></i>', static::iconClass($item['icon'] ?: $this->defaultIcon)),
             '{label}' => $item['label'],
             '{arrow}' => !empty($item['items']) ? '<i class="fa pull-right fa-angle-left"></i>' : '',
         ]);
@@ -131,6 +131,7 @@ class Menu extends \yii\widgets\Menu
                 $item['visible'] = call_user_func($item['visible']);
             }
         }
+
         return parent::normalizeItems($items, $active);
     }
 }

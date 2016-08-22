@@ -60,7 +60,7 @@ class MenuManager extends \hiqdev\yii2\collection\Manager
     protected $_itemClass = Menu::class;
 
     /**
-     * @var bool is already inited.
+     * @var bool is already inited
      */
     protected $_isInited = false;
 
@@ -78,7 +78,7 @@ class MenuManager extends \hiqdev\yii2\collection\Manager
             $menu = Yii::createObject($config);
             $this->{$menu->addTo}->addItems($menu->items, $menu->where);
         }
-        #$this->toArray();
+        //$this->toArray();
 
         $this->_isInited = true;
     }

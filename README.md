@@ -6,10 +6,14 @@ Yii2 Menu Manager
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/yii2-menumanager/v/stable)](https://packagist.org/packages/hiqdev/yii2-menumanager)
 [![Total Downloads](https://poser.pugx.org/hiqdev/yii2-menumanager/downloads)](https://packagist.org/packages/hiqdev/yii2-menumanager)
 [![Build Status](https://img.shields.io/travis/hiqdev/yii2-menumanager.svg)](https://travis-ci.org/hiqdev/yii2-menumanager)
-[![Code Coverage](https://scrutinizer-ci.com/g/hiqdev/yii2-menumanager/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/hiqdev/yii2-menumanager/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hiqdev/yii2-menumanager/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/hiqdev/yii2-menumanager/?branch=master)
+[![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/hiqdev/yii2-menumanager.svg)](https://scrutinizer-ci.com/g/hiqdev/yii2-menumanager/)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/yii2-menumanager.svg)](https://scrutinizer-ci.com/g/hiqdev/yii2-menumanager/)
+[![Dependency Status](https://www.versioneye.com/php/hiqdev:yii2-menumanager/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:yii2-menumanager/dev-master)
 
-Menu Manager with auto loading from extension, and widgets
+Features planned to provide:
+
+- auto loading and assembling menus from extensions
+- widgets
 
 ## Installation
 
