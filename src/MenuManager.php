@@ -41,7 +41,7 @@ use Yii;
  * ```
  * Yii::$app->menuManager->sidebar->add([
  *     'label'  => 'Dashboard',
- *     'url'    => ['/hipanel'],
+ *     'url'    => ['/site/index'],
  *     'icon'   => 'fa-dashboard',
  *     'active' => Yii::$app->request->url === Yii::$app->homeUrl
  * ],['after'=>'header']);
