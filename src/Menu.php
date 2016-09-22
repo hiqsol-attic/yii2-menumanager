@@ -49,6 +49,14 @@ class Menu extends \hiqdev\yii2\collection\Object
         return $this->_parent;
     }
 
+    public function setAdd(array $items)
+    {
+        foreach ($items as $item) {
+            $menu = Yii::createObject($item['menu']);
+            $this->addItems($menu->getItems(), isset($item['where']) ? $item['where'] : null);
+        }
+    }
+
     /**
      * Default items.
      *
