@@ -43,7 +43,7 @@
         }
     ],
     "require": {
-        "hiqdev/yii2-collection": "<2.0 || dev-master"
+        "hiqdev/yii2-collection": "<2.0"
     },
     "require-dev": {
         "hiqdev/hidev-php": "<2.0",
@@ -54,7 +54,6 @@
             "hiqdev\\menumanager\\": "src"
         }
     },
-    "minimum-stability": "dev",
     "extra": {
         "config-plugin": {
             "hisite": "src/config/hisite.php"
