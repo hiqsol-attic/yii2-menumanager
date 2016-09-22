@@ -1,6 +1,12 @@
 hiqdev/yii2-menumanager
 -----------------------
 
+## [Under development]
+
+- Changed - redone Menu and MenuManager
+    - [429082d] 2016-09-22 removed minimum-stability dev [sol@hiqdev.com]
+    - [3cf4d8f] 2016-09-22 BC BREAK simplified Menu and MenuManager [sol@hiqdev.com]
+
 ## [0.0.1] - 2016-08-22
 
 - Added `render()`
@@ -77,3 +83,5 @@ hiqdev/yii2-menumanager
 [e262927]: https://github.com/hiqdev/yii2-menumanager/commit/e262927
 [256e474]: https://github.com/hiqdev/yii2-menumanager/commit/256e474
 [ab3794e]: https://github.com/hiqdev/yii2-menumanager/commit/ab3794e
+[429082d]: https://github.com/hiqdev/yii2-menumanager/commit/429082d
+[3cf4d8f]: https://github.com/hiqdev/yii2-menumanager/commit/3cf4d8f
