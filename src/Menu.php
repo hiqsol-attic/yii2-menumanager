@@ -35,53 +35,18 @@ class Menu extends \hiqdev\yii2\collection\Object
     public $visible;
     public $options;
 
-    public function fields()
-    {
-        $keys = Yii::getObjectVars($this);
-        $keys['items'] = $this->_items;
-        $fields = [];
-        foreach ($keys as $k => $v) {
-            if (!empty($v)) {
-                $fields[$k] = $k;
-            }
-        }
-
-        return $fields;
-    }
-
-    public function getItemsArray()
-    {
-        return $this->toArray()['items'];
-    }
-
     /**
-     * @var string which menu to add to
+     * @var string parent menu.
      */
-    protected $_addTo;
+    public $_parent;
 
     /**
      * Getter for addTo.
-     *
      * @return string add to
      */
-    public function getAddTo()
+    public function getParent()
     {
-        return $this->_addTo;
-    }
-
-    /**
-     * @var array where in the menu to add to
-     */
-    protected $_where = [];
-
-    /**
-     * Getter for where.
-     *
-     * @return array where
-     */
-    public function getWhere()
-    {
-        return $this->_where;
+        return $this->_parent;
     }
 
     /**
@@ -99,17 +64,15 @@ class Menu extends \hiqdev\yii2\collection\Object
      */
     public function init()
     {
-        parent::init();
         $this->addItems($this->items());
     }
 
     public function render($options = [])
     {
-        if (!is_array($options)) {
+        if (is_string($options)) {
             $options = ['class' => $options];
         }
         $class = $options['class'] ?: \yii\widgets\Menu::class;
-        unset($options['class']);
         $options['items'] = array_values($this->getItems());
 
         return $class::widget($options);

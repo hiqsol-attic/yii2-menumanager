@@ -59,28 +59,15 @@ class MenuManager extends \hiqdev\yii2\collection\Manager
      */
     protected $_itemClass = Menu::class;
 
-    /**
-     * @var bool is already inited
-     */
-    protected $_isInited = false;
-
-    public $menus = [];
-
-    /**
-     * {@inheritdoc}
-     */
-    public function init()
+    public function getItem($name)
     {
-        if ($this->_isInited) {
-            return;
+        $item = &$this->_items[$name];
+        if (is_string($item)) {
+            $item = ['class' => $item];
         }
-        foreach ($this->menus as $config) {
-            $menu = Yii::createObject($config);
-            $this->{$menu->addTo}->addItems($menu->items, $menu->where);
-        }
-        //$this->toArray();
+        $item = $this->createItem($name, $item ?: []);
 
-        $this->_isInited = true;
+        return $item;
     }
 
     public function render($name, $options = [])
