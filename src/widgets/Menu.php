@@ -68,8 +68,8 @@ class Menu extends \yii\widgets\Menu
     /**
      * Get module id from ulr string
      *
-     * @param $url string (like '/dns/zone/index')
-     * @return string (like 'dns')
+     * @param $route (like '/dns/zone/index')
+     * @return null|string (like 'dns')
      */
     private function getModuleName($route)
     {
