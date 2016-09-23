@@ -16,6 +16,7 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\Request;
 
 /**
  * Enhanced menu widget with icons, visible callback.
@@ -44,15 +45,16 @@ class Menu extends \yii\widgets\Menu
      * @param array $item
      * @return bool
      */
-    protected function guessModule(array $item)
+    protected function guessModule(array $item, $parentUrl = null)
     {
         $result = false;
         $moduleId = Yii::$app->controller->module->id;
+        $parentModuleId = $this->getModuleName($parentUrl);
         if (!empty($item['items'])) {
             foreach ($item['items'] as $i) {
                 if (isset($i['url'])) {
-                    $parts = explode('/', reset($i['url']));
-                    if ($parts[1] === $moduleId) {
+                    $itemModuleName = $this->getModuleName(reset($i['url']));
+                    if ($itemModuleName === $moduleId && $parentModuleId === $moduleId) {
                         $result = true;
                         break;
                     }
@@ -61,6 +63,30 @@ class Menu extends \yii\widgets\Menu
         }
 
         return $result;
+    }
+
+    /**
+     * Get module id from ulr string
+     *
+     * @param $url string (like '/dns/zone/index')
+     * @return string (like 'dns')
+     */
+    private function getModuleName($url)
+    {
+        if ($url) {
+            $request = new Request(['url' => $url]);
+            $route = reset(Yii::$app->urlManager->parseRequest($request));
+            if (strpos($route, '/') !== false) {
+                list ($id, $route) = explode('/', $route, 2);
+            } else {
+                $id = $route;
+                $route = '';
+            }
+
+            return $id;
+        }
+
+        return null;
     }
 
     /**
@@ -74,7 +100,8 @@ class Menu extends \yii\widgets\Menu
             $options = array_merge($this->itemOptions, ArrayHelper::getValue($item, 'options', []));
             $tag = ArrayHelper::remove($options, 'tag', 'li');
             $class = [];
-            if ($item['active'] || $this->guessModule($item)) {
+            $parentModuleUrl = isset($item['items']) ? $item : null;
+            if ($item['active'] || $this->guessModule($item, $parentModuleUrl['url'][0])) {
                 $class[] = $this->activeCssClass;
             }
             if ($i === 0 && $this->firstItemCssClass !== null) {
