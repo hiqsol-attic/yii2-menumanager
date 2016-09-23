@@ -71,11 +71,9 @@ class Menu extends \yii\widgets\Menu
      * @param $url string (like '/dns/zone/index')
      * @return string (like 'dns')
      */
-    private function getModuleName($url)
+    private function getModuleName($route)
     {
-        if ($url) {
-            $request = new Request(['url' => $url]);
-            $route = reset(Yii::$app->urlManager->parseRequest($request));
+        if ($route) {
             if (strpos($route, '/') !== false) {
                 list ($id, $route) = explode('/', $route, 2);
             } else {
