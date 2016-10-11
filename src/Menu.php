@@ -81,7 +81,7 @@ class Menu extends \hiqdev\yii2\collection\Object
             $options = ['class' => $options];
         }
         $class = $options['class'] ?: \yii\widgets\Menu::class;
-        $options['items'] = array_values($this->getItems());
+        $options['items'] = $this->getItems();
 
         return $class::widget($options);
     }
