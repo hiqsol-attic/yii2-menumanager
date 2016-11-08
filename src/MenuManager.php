@@ -75,3 +75,4 @@ class MenuManager extends \hiqdev\yii2\collection\Manager
         return $this->get($name)->render($options);
     }
 }
+
