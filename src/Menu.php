@@ -85,4 +85,11 @@ class Menu extends \hiqdev\yii2\collection\Object
 
         return $class::widget($options);
     }
+
+    public static function create(array $config = [])
+    {
+        $config['class'] = get_called_class();
+
+        return Yii::createObject($config);
+    }
 }
