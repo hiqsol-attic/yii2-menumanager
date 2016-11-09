@@ -2,7 +2,6 @@
 
 namespace hiqdev\menumanager\widgets;
 
-use yii\widgets\Menu;
 use yii\helpers\Html;
 
 class MenuButton extends \yii\base\Widget
