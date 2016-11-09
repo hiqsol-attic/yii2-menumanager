@@ -39,6 +39,11 @@ class Menu extends \yii\widgets\Menu
     public $defaultIcon = 'fa-angle-double-right';
 
     /**
+     * @inheritdoc
+     */
+    public $linkTemplate = '<a href="{url}" {linkOptions}>{label}</a>';
+
+    /**
      * Try to guess which module is parent for current page
      * and remain sidebarmenu accordion opened.
      *
@@ -138,6 +143,7 @@ class Menu extends \yii\widgets\Menu
             '{icon}' => $item['icon'] === false ? '' : sprintf('<i class="%s"></i>', static::iconClass($item['icon'] ?: $this->defaultIcon)),
             '{label}' => $item['label'],
             '{arrow}' => !empty($item['items']) ? '<i class="fa pull-right fa-angle-left"></i>' : '',
+            '{linkOptions}' => Html::renderTagAttributes(ArrayHelper::getValue($item, 'linkOptions', [])),
         ]);
     }
 
