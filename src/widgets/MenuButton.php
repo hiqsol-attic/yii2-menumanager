@@ -15,31 +15,53 @@ class MenuButton extends \yii\base\Widget
     public function run()
     {
         $this->getView()->registerCss("
-        @media (max-width: 767px) {
-            .menu-button .dropdown-menu {
-                position: relative!important;
-            }
+        .menu-button .nav > li > a {
+            padding: 5px 15px;
+        }
+        .menu-button .popover-content {
+            padding: 9px 0px;
         }
         ");
         $this->getView()->registerJs("
-        $.fn.hasScrollBar = function() {
-            return this.get(0).scrollWidth > this.width();
-        }
-        if ($('div.table-responsive').hasScrollBar() === true) {
-           $('.menu-button .dropdown-menu').css('position', 'relative'); 
-        }
-        ");
+            // Init popover
+            ;(function () {
+                var actionsButton = $('.menu-button button[data-toggle=\"popover\"]');
+                actionsButton.popover();
+                // Show one popover and hide other popovers
+                actionsButton.on('click', function (e) {
+                    actionsButton.not(this).popover('hide');
+                });
+                // hide popover on click outside
+                $(document).on('click', function (e) {
+                    actionsButton.each(function () {
+                        //the 'is' for buttons that trigger popups
+                        //the 'has' for icons within a button that triggers a popup
+                        if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {                
+                            (($(this).popover('hide').data('bs.popover')||{}).inState||{}).click = false  // fix for BS 3.3.6
+                        }
 
+                    });
+                });
+            })();
+        ");
         $class = $this->menuClass;
-        $html = Html::beginTag('div', ['class' => 'menu-button dropdown visible-lg-inline visible-md-inline visible-sm-inline visible-xs-inline']);
-        $html .= Html::button($this->icon, [
-            'class' => 'btn btn-default btn-xs dropdown-toggle',
-            'data-toggle' => 'dropdown',
-        ]);
-        $html .= $class::widget([
+        $actionsMenu = $class::widget([
             'items' => $this->items,
             'options' => [
-                'class' => 'dropdown-menu',
+                'class' => 'nav',
+            ],
+        ]);
+        $html = Html::beginTag('div', [
+            'class' => 'menu-button visible-lg-inline visible-md-inline visible-sm-inline visible-xs-inline'
+        ]);
+        $html .= Html::button($this->icon, [
+            'class' => 'btn btn-default btn-xs',
+            'data' => [
+                'toggle' => 'popover',
+                'trigger' => 'click',
+                'content' => $actionsMenu,
+                'html' => 'true',
+                'placement' => 'left',
             ],
         ]);
         $html .= Html::endTag('div');
