@@ -61,7 +61,7 @@ class MenuButton extends \yii\base\Widget
                 'trigger' => 'click',
                 'content' => $actionsMenu,
                 'html' => 'true',
-                'placement' => 'left',
+                'placement' => 'bottom',
             ],
         ]);
         $html .= Html::endTag('div');
