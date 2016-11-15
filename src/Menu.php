@@ -11,12 +11,14 @@
 
 namespace hiqdev\menumanager;
 
+use ReflectionClass;
 use Yii;
+use yii\base\View;
 
 /**
  * Menu is a manageable collection of child [[Menu]]s.
  */
-class Menu extends \hiqdev\yii2\collection\Object
+class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewContextInterface
 {
     /**
      * {@inheritdoc}
@@ -92,4 +94,71 @@ class Menu extends \hiqdev\yii2\collection\Object
 
         return Yii::createObject($config);
     }
+
+    /**
+     * Renders a view.
+     * @param string $view the view name.
+     * @param array $params the parameters (name-value pairs) to be available in the view.
+     * @return string the rendering result.
+     */
+    public function renderView($view, $params = [])
+    {
+        return $this->getView()->render($view, $params, $this);
+    }
+
+    /**
+     * @var View the view object to be used to render views.
+     */
+    private $_view;
+
+    /**
+     * Returns the view object to be used to render views or view files.
+     * If not set, it will default to the "view" application component.
+     * @return View|\yii\web\View the view object to be used to render views.
+     */
+    public function getView()
+    {
+        if ($this->_view === null) {
+            $this->_view = Yii::$app->getView();
+        }
+        return $this->_view;
+    }
+
+    /**
+     * Sets the view object to be used by this menu.
+     * @param View the view object to be used to render views.
+     */
+    public function setView($view)
+    {
+        $this->_view = $view;
+    }
+
+    /**
+     * @var string the root directory that contains view files for this menu.
+     */
+    protected $_viewPath;
+
+    /**
+     * Sets the directory that contains the view files.
+     * @param string $path the root directory of view files.
+     */
+    public function setViewPath($path)
+    {
+        $this->_viewPath = Yii::getAlias($path);
+    }
+
+    /**
+     * Returns the directory containing view files for this menu.
+     * The default implementation returns `views/menus` in the current module.
+     * @return string the directory containing the view files for this controller.
+     */
+    public function getViewPath()
+    {
+        if ($this->_viewPath === null) {
+            $ref = new ReflectionClass($this);
+            $this->_viewPath = dirname(dirname($ref->getFileName())) . '/views/menus';
+        }
+        return $this->_viewPath;
+    }
+
 }
