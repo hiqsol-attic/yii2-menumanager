@@ -79,6 +79,8 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
 
     /**
      * Renders menu with given options.
+     * @param mixed $options
+     * @return string rendered menu.
      */
     public function render($options = [])
     {
