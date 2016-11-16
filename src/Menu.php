@@ -77,15 +77,52 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
         $this->addItems($this->items());
     }
 
+    /**
+     * Renders menu with given options.
+     */
     public function render($options = [])
     {
         if (is_string($options)) {
             $options = ['class' => $options];
         }
-        $class = $options['class'] ?: \yii\widgets\Menu::class;
+        if (empty($options['class'])) {
+            $options['class'] = \yii\widgets\Menu::class;
+        }
         $options['items'] = $this->getItems();
 
-        return $class::widget($options);
+        return static::callStatic('widget', $options);
+    }
+
+    /**
+     * Calls static method of class from config.
+     * Uses Yii container to get class definition.
+     * @param string $method
+     * @param mixed $config
+     * @throws InvalidConfigException
+     * @return mixed
+     */
+    public static function callStatic($method, $config)
+    {
+        if (is_string($config)) {
+            $config = ['class' => $config];
+        }
+        if (empty($config['class'])) {
+            throw new InvalidConfigException('no class given');
+        }
+        $class = $config['class'];
+        $container = Yii::$container;
+        if ($container->has($class)) {
+            $definition = $container->getDefinitions()[$class];
+            if (is_array($definition)) {
+                $config = array_merge($definition, $config);
+                $class = $definition['class'];
+            } else {
+                $class = $definition;
+            }
+        }
+        unset($config['class']);
+
+        return call_user_func([$class, $method], $config);
     }
 
     public static function create(array $config = [])
