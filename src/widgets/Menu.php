@@ -41,7 +41,7 @@ class Menu extends \yii\widgets\Menu
     /**
      * @inheritdoc
      */
-    public $linkTemplate = '<a href="{url}" {linkOptions}>{label}</a>';
+    public $linkTemplate = '<a href="{url}" {linkOptions}>{icon} {label}</a>';
 
     /**
      * Try to guess which module is parent for current page
