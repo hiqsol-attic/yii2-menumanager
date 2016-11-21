@@ -149,7 +149,7 @@ class Menu extends \yii\widgets\Menu
 
     public static function iconClass($icon)
     {
-        return (substr($icon, 0, 3) === 'fa-' ? 'fa ' : '') . $icon;
+        return (substr($icon, 0, 3) === 'fa-' ? 'fa fa-fw ' : '') . $icon;
     }
 
     /**
