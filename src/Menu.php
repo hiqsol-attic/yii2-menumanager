@@ -13,6 +13,7 @@ namespace hiqdev\menumanager;
 
 use ReflectionClass;
 use Yii;
+use yii\base\InvalidConfigException;
 use yii\base\View;
 
 /**
