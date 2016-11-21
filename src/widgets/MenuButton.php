@@ -47,7 +47,6 @@ class MenuButton extends \yii\base\Widget
         $class = $this->menuClass;
         $actionsMenu = $class::widget([
             'items' => $this->items,
-            'linkTemplate' => '<a href="{url}" {linkOptions}>{icon} {label}</span></a>',
             'options' => [
                 'class' => 'nav',
             ],
