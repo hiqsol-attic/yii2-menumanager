@@ -1,9 +1,8 @@
 <?php
 
-namespace hipanel\menumanager\widgets;
+namespace hiqdev\menumanager\widgets;
 
 use yii\base\Widget;
-use yii\widgets\Menu;
 
 class DetailMenu extends Widget
 {
