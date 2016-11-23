@@ -61,7 +61,7 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     }
 
     /**
-     * Default items.
+     * Returns default items defined in class
      *
      * @return array
      */
@@ -71,15 +71,20 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     }
 
     /**
-     * Inits with default items.
+     * Initializes object with default items.
+     *
+     * Don not forget to call parent implementation when overriding this method.
      */
     public function init()
     {
+        parent::init();
+
         $this->addItems($this->items());
     }
 
     /**
      * Renders menu with given options.
+     *
      * @param mixed $options
      * @return string rendered menu.
      */
@@ -99,6 +104,7 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     /**
      * Calls static method of class from config.
      * Uses Yii container to get class definition.
+     *
      * @param string $method
      * @param mixed $config
      * @throws InvalidConfigException
@@ -128,6 +134,12 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
         return call_user_func([$class, $method], $config);
     }
 
+    /**
+     * Creates menu and sets $config
+     *
+     * @param array $config
+     * @return static
+     */
     public static function create(array $config = [])
     {
         $config['class'] = get_called_class();
@@ -166,7 +178,7 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
 
     /**
      * Sets the view object to be used by this menu.
-     * @param View the view object to be used to render views.
+     * @param View $view the view object to be used to render views.
      */
     public function setView($view)
     {
