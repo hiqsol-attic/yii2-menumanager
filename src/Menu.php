@@ -18,6 +18,9 @@ use yii\base\View;
 
 /**
  * Menu is a manageable collection of child [[Menu]]s.
+ *
+ * @property array $add array of menus that will be added to the [[Menu]]
+ * @property array $merge array of menus that will be merged into the [[Menu]]
  */
 class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewContextInterface
 {
@@ -39,6 +42,17 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     public $options;
 
     /**
+     * @var array
+     */
+    protected $_add;
+
+    /**
+     * @var array
+     */
+    protected $_merge;
+
+
+    /**
      * @var string parent menu.
      */
     public $_parent;
@@ -52,11 +66,33 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
         return $this->_parent;
     }
 
-    public function setAdd(array $items)
+    /**
+     * Adds $items to the Menu
+     *
+     * @param array $items
+     * @return void
+     * @see addItems()
+     */
+    public function add(array $items)
     {
         foreach ($items as $item) {
             $menu = Yii::createObject($item['menu']);
             $this->addItems($menu->getItems(), isset($item['where']) ? $item['where'] : null);
+        }
+    }
+
+    /**
+     * Merges $items to the Menu
+     *
+     * @param array $items
+     * @return void
+     * @see mergeItems()
+     */
+    public function merge(array $items)
+    {
+        foreach ($items as $item) {
+            $menu = Yii::createObject($item['menu']);
+            $this->mergeItems($menu->getItems());
         }
     }
 
@@ -80,6 +116,14 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
         parent::init();
 
         $this->addItems($this->items());
+
+        if (($add = $this->getAdd()) !== null) {
+            $this->add($add);
+        }
+
+        if (($merge = $this->getMerge()) !== null) {
+            $this->merge($merge);
+        }
     }
 
     /**
@@ -211,6 +255,38 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
             $this->_viewPath = dirname(dirname($ref->getFileName())) . '/views/menus';
         }
         return $this->_viewPath;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdd()
+    {
+        return $this->_add;
+    }
+
+    /**
+     * @param mixed $add
+     */
+    public function setAdd($add)
+    {
+        $this->_add = $add;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMerge()
+    {
+        return $this->_merge;
+    }
+
+    /**
+     * @param mixed $merge
+     */
+    public function setMerge($merge)
+    {
+        $this->_merge = $merge;
     }
 
 }
