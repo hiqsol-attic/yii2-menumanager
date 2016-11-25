@@ -73,7 +73,7 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
      * @return void
      * @see addItems()
      */
-    public function add(array $items)
+    public function addMenus(array $items)
     {
         foreach ($items as $item) {
             $menu = Yii::createObject($item['menu']);
@@ -88,7 +88,7 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
      * @return void
      * @see mergeItems()
      */
-    public function merge(array $items)
+    public function mergeMenus(array $items)
     {
         foreach ($items as $item) {
             $menu = Yii::createObject($item['menu']);
@@ -118,11 +118,11 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
         $this->addItems($this->items());
 
         if (($add = $this->getAdd()) !== null) {
-            $this->add($add);
+            $this->addMenus($add);
         }
 
         if (($merge = $this->getMerge()) !== null) {
-            $this->merge($merge);
+            $this->mergeMenus($merge);
         }
     }
 
