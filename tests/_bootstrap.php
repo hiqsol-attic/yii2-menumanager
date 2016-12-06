@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Menu Manager for Yii2
  *
  * @link      https://github.com/hiqdev/yii2-menumanager

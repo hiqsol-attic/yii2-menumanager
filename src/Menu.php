@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Menu Manager for Yii2
  *
  * @link      https://github.com/hiqdev/yii2-menumanager
@@ -51,9 +50,8 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
      */
     protected $_merge;
 
-
     /**
-     * @var string parent menu.
+     * @var string parent menu
      */
     public $_parent;
 
@@ -67,10 +65,9 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     }
 
     /**
-     * Adds $items to the Menu
+     * Adds $items to the Menu.
      *
      * @param array $items
-     * @return void
      * @see addItems()
      */
     public function addMenus(array $items)
@@ -82,10 +79,9 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     }
 
     /**
-     * Merges $items to the Menu
+     * Merges $items to the Menu.
      *
      * @param array $items
-     * @return void
      * @see mergeItems()
      */
     public function mergeMenus(array $items)
@@ -97,7 +93,7 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     }
 
     /**
-     * Returns default items defined in class
+     * Returns default items defined in class.
      *
      * @return array
      */
@@ -130,7 +126,7 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
      * Renders menu with given options.
      *
      * @param mixed $options
-     * @return string rendered menu.
+     * @return string rendered menu
      */
     public function render($options = [])
     {
@@ -179,7 +175,7 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     }
 
     /**
-     * Creates menu and sets $config
+     * Creates menu and sets $config.
      *
      * @param array $config
      * @return static
@@ -193,9 +189,9 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
 
     /**
      * Renders a view.
-     * @param string $view the view name.
-     * @param array $params the parameters (name-value pairs) to be available in the view.
-     * @return string the rendering result.
+     * @param string $view the view name
+     * @param array $params the parameters (name-value pairs) to be available in the view
+     * @return string the rendering result
      */
     public function renderView($view, $params = [])
     {
@@ -203,14 +199,14 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     }
 
     /**
-     * @var View the view object to be used to render views.
+     * @var View the view object to be used to render views
      */
     private $_view;
 
     /**
      * Returns the view object to be used to render views or view files.
      * If not set, it will default to the "view" application component.
-     * @return View|\yii\web\View the view object to be used to render views.
+     * @return View|\yii\web\View the view object to be used to render views
      */
     public function getView()
     {
@@ -222,7 +218,7 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
 
     /**
      * Sets the view object to be used by this menu.
-     * @param View $view the view object to be used to render views.
+     * @param View $view the view object to be used to render views
      */
     public function setView($view)
     {
@@ -230,13 +226,13 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     }
 
     /**
-     * @var string the root directory that contains view files for this menu.
+     * @var string the root directory that contains view files for this menu
      */
     protected $_viewPath;
 
     /**
      * Sets the directory that contains the view files.
-     * @param string $path the root directory of view files.
+     * @param string $path the root directory of view files
      */
     public function setViewPath($path)
     {
@@ -246,7 +242,7 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     /**
      * Returns the directory containing view files for this menu.
      * The default implementation returns `views/menus` in the current module.
-     * @return string the directory containing the view files for this controller.
+     * @return string the directory containing the view files for this controller
      */
     public function getViewPath()
     {
@@ -288,5 +284,4 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     {
         $this->_merge = $merge;
     }
-
 }

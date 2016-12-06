@@ -1,4 +1,12 @@
 <?php
+/**
+ * Menu Manager for Yii2
+ *
+ * @link      https://github.com/hiqdev/yii2-menumanager
+ * @package   yii2-menumanager
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2015-2016, HiQDev (http://hiqdev.com/)
+ */
 
 namespace hiqdev\menumanager;
 
@@ -8,17 +16,17 @@ use yii\grid\DataColumn;
 class MenuColumn extends DataColumn
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public $format = 'raw';
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public $header = '&nbsp;';
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public $contentOptions = [
         'class' => 'text-center',
@@ -27,7 +35,7 @@ class MenuColumn extends DataColumn
     public $menuClass;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getDataCellValue($model, $key, $index)
     {

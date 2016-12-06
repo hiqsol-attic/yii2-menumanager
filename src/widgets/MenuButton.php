@@ -1,4 +1,12 @@
 <?php
+/**
+ * Menu Manager for Yii2
+ *
+ * @link      https://github.com/hiqdev/yii2-menumanager
+ * @package   yii2-menumanager
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2015-2016, HiQDev (http://hiqdev.com/)
+ */
 
 namespace hiqdev\menumanager\widgets;
 
@@ -14,14 +22,14 @@ class MenuButton extends \yii\base\Widget
 
     public function run()
     {
-        $this->getView()->registerCss("
+        $this->getView()->registerCss('
         .menu-button .nav > li > a {
             padding: 5px 15px;
         }
         .menu-button .popover-content {
             padding: 9px 0px;
         }
-        ");
+        ');
         $this->getView()->registerJs("
             // Init popover
             ;(function () {
@@ -52,7 +60,7 @@ class MenuButton extends \yii\base\Widget
             ],
         ]);
         $html = Html::beginTag('div', [
-            'class' => 'menu-button visible-lg-inline visible-md-inline visible-sm-inline visible-xs-inline'
+            'class' => 'menu-button visible-lg-inline visible-md-inline visible-sm-inline visible-xs-inline',
         ]);
         $html .= Html::button($this->icon, [
             'class' => 'btn btn-default btn-xs',

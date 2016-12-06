@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Menu Manager for Yii2
  *
  * @link      https://github.com/hiqdev/yii2-menumanager
@@ -16,7 +15,6 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\web\Request;
 
 /**
  * Enhanced menu widget with icons, visible callback.
@@ -39,14 +37,13 @@ class Menu extends \yii\widgets\Menu
     public $defaultIcon = 'fa-angle-double-right';
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public $linkTemplate = '<a href="{url}" {linkOptions}>{icon}&nbsp;{label}</a>';
 
     /**
      * Try to guess which module is parent for current page
      * and remain sidebarmenu accordion opened.
-     *
      * @param array $item
      * @return bool
      */
@@ -71,8 +68,7 @@ class Menu extends \yii\widgets\Menu
     }
 
     /**
-     * Get module id from ulr string
-     *
+     * Get module id from url string.
      * @param $route (like '/dns/zone/index')
      * @return null|string (like 'dns')
      */
@@ -80,7 +76,7 @@ class Menu extends \yii\widgets\Menu
     {
         if ($route) {
             if (strpos($route, '/') !== false) {
-                list ($id, $route) = explode('/', $route, 2);
+                list($id, $route) = explode('/', $route, 2);
             } else {
                 $id = $route;
                 $route = '';
