@@ -1,11 +1,39 @@
 hiqdev/yii2-menumanager
 -----------------------
 
-## [Under development]
+## [0.0.2] - 2016-12-06
 
 - Changed - redone Menu and MenuManager
+    - [707f555] 2016-12-06 removed Menu::setSaveToView [sol@hiqdev.com]
+    - [38dccd9] 2016-12-06 csfixed [sol@hiqdev.com]
+    - [98935b0] 2016-11-29 Added non-breaking space to link template [andreyklochok@gmail.com]
+    - [49c84d2] 2016-11-25 Menu methods renamed: add() -> addMenus(), merge() -> mergeMenus() [d.naumenko.a@gmail.com]
+    - [5f4b586] 2016-11-24 Refactored Menu::add, added Menu::merge. PHPDocs enhanced [d.naumenko.a@gmail.com]
+    - [664097c] 2016-11-23 PHPDocs updated [d.naumenko.a@gmail.com]
+    - [ae21195] 2016-11-21 Changed linkTemplate, added {icon} [andreyklochok@gmail.com]
+    - [49417ea] 2016-11-21 Changed icons [andreyklochok@gmail.com]
+    - [b35fc48] 2016-11-21 Added fa-fw if icon class is fontawesome [andreyklochok@gmail.com]
+    - [1614714] 2016-11-16 used di definitions when rendering menu with use of callStatic [sol@hiqdev.com]
+    - [2140cb4] 2016-11-09 Changed menu class [andreyklochok@gmail.com]
+    - [0fee9a1] 2016-11-09 Changed link template, added linkOptions to renderItem method [andreyklochok@gmail.com]
+    - [bdc864f] 2016-11-08 + MenuButton widget [sol@hiqdev.com]
+    - [eef44ab] 2016-11-08 + Menu::create static function [sol@hiqdev.com]
+    - [561d9d5] 2016-11-08 Added check if .table-responsive has horizontal scroll and added to .dropdown-menu position relative. [andreyklochok@gmail.com]
+    - [a48d14c] 2016-10-11 removed `array_values` when getting items [sol@hiqdev.com]
+    - [a1502a0] 2016-09-23 Fixed active parent items [andreyklochok@gmail.com]
+    - [f46b3bf] 2016-09-22 added `Menu::setAdd` for extending menu [sol@hiqdev.com]
     - [429082d] 2016-09-22 removed minimum-stability dev [sol@hiqdev.com]
     - [3cf4d8f] 2016-09-22 BC BREAK simplified Menu and MenuManager [sol@hiqdev.com]
+    - [14fc642] 2016-09-22 allowed yii2-collection dev version [sol@hiqdev.com]
+- Added DetailMenu
+    - [e744f34] 2016-11-21 Added DetailMenu [andreyklochok@gmail.com]
+- Added view rendering in Menu
+    - [b467f9e] 2016-11-15 + view rendering at Menu [sol@hiqdev.com]
+    - [50570cd] 2016-11-10 Change actions from dropdown to popver [andreyklochok@gmail.com]
+- Added MenuColumn
+    - [eaf3786] 2016-11-08 Added MenuColumn [andreyklochok@gmail.com]
+- Added MenuButton
+    - [065b808] 2016-11-08 Changed MenuButton style [andreyklochok@gmail.com]
 
 ## [0.0.1] - 2016-08-22
 
@@ -85,3 +113,27 @@ hiqdev/yii2-menumanager
 [ab3794e]: https://github.com/hiqdev/yii2-menumanager/commit/ab3794e
 [429082d]: https://github.com/hiqdev/yii2-menumanager/commit/429082d
 [3cf4d8f]: https://github.com/hiqdev/yii2-menumanager/commit/3cf4d8f
+[38dccd9]: https://github.com/hiqdev/yii2-menumanager/commit/38dccd9
+[98935b0]: https://github.com/hiqdev/yii2-menumanager/commit/98935b0
+[49c84d2]: https://github.com/hiqdev/yii2-menumanager/commit/49c84d2
+[5f4b586]: https://github.com/hiqdev/yii2-menumanager/commit/5f4b586
+[664097c]: https://github.com/hiqdev/yii2-menumanager/commit/664097c
+[ae21195]: https://github.com/hiqdev/yii2-menumanager/commit/ae21195
+[49417ea]: https://github.com/hiqdev/yii2-menumanager/commit/49417ea
+[b35fc48]: https://github.com/hiqdev/yii2-menumanager/commit/b35fc48
+[e744f34]: https://github.com/hiqdev/yii2-menumanager/commit/e744f34
+[1614714]: https://github.com/hiqdev/yii2-menumanager/commit/1614714
+[b467f9e]: https://github.com/hiqdev/yii2-menumanager/commit/b467f9e
+[50570cd]: https://github.com/hiqdev/yii2-menumanager/commit/50570cd
+[2140cb4]: https://github.com/hiqdev/yii2-menumanager/commit/2140cb4
+[0fee9a1]: https://github.com/hiqdev/yii2-menumanager/commit/0fee9a1
+[561d9d5]: https://github.com/hiqdev/yii2-menumanager/commit/561d9d5
+[065b808]: https://github.com/hiqdev/yii2-menumanager/commit/065b808
+[eaf3786]: https://github.com/hiqdev/yii2-menumanager/commit/eaf3786
+[bdc864f]: https://github.com/hiqdev/yii2-menumanager/commit/bdc864f
+[eef44ab]: https://github.com/hiqdev/yii2-menumanager/commit/eef44ab
+[a48d14c]: https://github.com/hiqdev/yii2-menumanager/commit/a48d14c
+[a1502a0]: https://github.com/hiqdev/yii2-menumanager/commit/a1502a0
+[f46b3bf]: https://github.com/hiqdev/yii2-menumanager/commit/f46b3bf
+[14fc642]: https://github.com/hiqdev/yii2-menumanager/commit/14fc642
+[707f555]: https://github.com/hiqdev/yii2-menumanager/commit/707f555
