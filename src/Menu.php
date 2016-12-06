@@ -28,11 +28,6 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
      */
     protected $_itemClass = self::class;
 
-    public function setSaveToView($name)
-    {
-        Yii::$app->view->$name = $this;
-    }
-
     public $label;
     public $url;
     public $icon;
