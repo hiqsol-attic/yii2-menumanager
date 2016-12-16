@@ -10,6 +10,7 @@
 
 namespace hiqdev\menumanager\widgets;
 
+use hiqdev\menumanager\Menu as MenuDef;
 use yii\base\Widget;
 
 class DetailMenu extends Widget
@@ -18,14 +19,14 @@ class DetailMenu extends Widget
 
     public $items = [];
 
-    public $model;
-
-    public $menuClass = Menu::class;
+    /**
+     * @var string|array class name or configuration for widget to run
+     */
+    public $widget = Menu::class;
 
     public function run()
     {
-        $class = $this->menuClass;
-        return $class::widget([
+        return MenuDef::callStatic('widget', $this->widget, [
             'items' => $this->items,
             'options' => array_merge(['class' => 'nav'], $this->options),
         ]);
