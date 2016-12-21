@@ -14,6 +14,7 @@ use ReflectionClass;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\base\View;
+use yii\widgets\Menu as MenuWidget;
 
 /**
  * Menu is a manageable collection of child [[Menu]]s.
@@ -129,7 +130,7 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
             $options = ['class' => $options];
         }
         if (empty($options['class'])) {
-            $options['class'] = \yii\widgets\Menu::class;
+            $options['class'] = MenuWidget::class;
         }
         $options['items'] = $this->getItems();
 
