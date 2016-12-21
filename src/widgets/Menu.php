@@ -161,15 +161,4 @@ class Menu extends \yii\widgets\Menu
 
         return parent::normalizeItems($items, $active);
     }
-
-    public static function normalizeConfig($config, $defaultClass = null)
-    {
-        if (is_string($config)) {
-            $config = ['class' => $config];
-        } elseif (empty($config['class'])) {
-            $config['class'] = $defaultClass ?: static::class;
-        }
-
-        return $config;
-    }
 }
