@@ -153,12 +153,23 @@ class Menu extends \yii\widgets\Menu
      */
     protected function normalizeItems($items, &$active)
     {
-        foreach ($items as $i => &$item) {
-            if ($item['visible'] instanceof Closure) {
+        foreach ($items as &$item) {
+            if (isset($item['visible']) && $item['visible'] instanceof Closure) {
                 $item['visible'] = call_user_func($item['visible']);
             }
         }
 
         return parent::normalizeItems($items, $active);
+    }
+
+    public static function normalizeConfig($config, $defaultClass = null)
+    {
+        if (is_string($config)) {
+            $config = ['class' => $config];
+        } elseif (empty($config['class'])) {
+            $config['class'] = $defaultClass ?: static::class;
+        }
+
+        return $config;
     }
 }

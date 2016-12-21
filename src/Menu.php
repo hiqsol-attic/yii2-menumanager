@@ -14,7 +14,7 @@ use ReflectionClass;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\base\View;
-use yii\widgets\Menu as MenuWidget;
+use hiqdev\menumanager\widgets\Menu as MenuWidget;
 
 /**
  * Menu is a manageable collection of child [[Menu]]s.
@@ -124,53 +124,12 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
      * @param mixed $options
      * @return string rendered menu
      */
-    public function render($options = [])
+    public function render($config = [])
     {
-        if (is_string($options)) {
-            $options = ['class' => $options];
-        }
-        if (empty($options['class'])) {
-            $options['class'] = MenuWidget::class;
-        }
-        $options['items'] = $this->getItems();
+        $config = MenuWidget::normalizeConfig($config);
+        $config['items'] = $this->getItems();
 
-        return static::callStatic('widget', $options);
-    }
-
-    /**
-     * Calls static method of class from config.
-     * Uses Yii container to get class definition.
-     *
-     * @param string $method
-     * @param mixed $config
-     * @throws InvalidConfigException
-     * @return mixed
-     */
-    public static function callStatic($method, $config)
-    {
-        if (is_string($config)) {
-            $config = ['class' => $config];
-        }
-        if (empty($config['class'])) {
-            throw new InvalidConfigException('no class given');
-        }
-        $class = $config['class'];
-        $container = Yii::$container;
-        if ($container->has($class)) {
-            $definition = $container->getDefinitions()[$class];
-            if (is_array($definition)) {
-                $config = array_merge($definition, $config);
-                $class = $definition['class'];
-            } else {
-                $class = $definition;
-            }
-        }
-        unset($config['class']);
-        $args = func_get_args();
-        array_shift($args);
-        array_shift($args);
-
-        return call_user_func_array([$class, $method], empty($args) ? [$config] : $args);
+        return call_user_func([$config['class'], 'widget'], $config);
     }
 
     /**
