@@ -138,10 +138,12 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
             $config = ['class' => $config];
         }
         $config = array_merge($this->widgetConfig, $config);
-        if (!isset($config['options'])) {
-            $config['options'] = [];
+        if (!empty($config['options']) || !empty($this->options)) {
+            $config['options'] = array_merge(
+                isset($this->options) ? $this->options : [],
+                isset($config['options']) ? $config['options'] : []
+            );
         }
-        $config['options'] = array_merge($this->options, $config['options']);
         $config['items'] = $this->getItems();
 
         return call_user_func([$config['class'], 'widget'], $config);
