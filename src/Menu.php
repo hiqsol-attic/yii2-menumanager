@@ -34,7 +34,7 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     public $icon;
     public $active;
     public $visible;
-    public $options;
+    public $options = [];
 
     /**
      * @var array
@@ -90,7 +90,6 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
 
     /**
      * Returns default items defined in class.
-     *
      * @return array
      */
     public function items()
@@ -99,9 +98,8 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
     }
 
     /**
-     * Initializes object with default items.
-     *
-     * Don not forget to call parent implementation when overriding this method.
+     * @inheritdoc
+     * Implements adding and merging.
      */
     public function init()
     {
@@ -118,15 +116,25 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
         }
     }
 
+    public $widgetConfig = [
+        'class' => MenuWidget::class,
+    ];
+
     /**
-     * Renders menu with given options.
-     *
-     * @param mixed $options
+     * Renders menu widget with given config.
+     * @param mixed $config
      * @return string rendered menu
      */
-    public function render($config = [])
+    public function widget($config = [])
     {
-        $config = MenuWidget::normalizeConfig($config);
+        if (!is_array($config)) {
+            $config = ['class' => $config];
+        }
+        $config = array_merge($this->widgetConfig, $config);
+        if (!isset($config['options'])) {
+            $config['options'] = [];
+        }
+        $config['options'] = array_merge($this->options, $config['options']);
         $config['items'] = $this->getItems();
 
         return call_user_func([$config['class'], 'widget'], $config);
@@ -134,7 +142,6 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
 
     /**
      * Creates menu and sets $config.
-     *
      * @param array $config
      * @return static
      */
@@ -151,7 +158,7 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
      * @param array $params the parameters (name-value pairs) to be available in the view
      * @return string the rendering result
      */
-    public function renderView($view, $params = [])
+    public function render($view, $params = [])
     {
         return $this->getView()->render($view, $params, $this);
     }
