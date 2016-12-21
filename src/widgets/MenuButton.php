@@ -18,6 +18,8 @@ class MenuButton extends \yii\base\Widget
 
     public $items;
 
+    public $options;
+
     public $menuClass = Menu::class;
 
     public function run()

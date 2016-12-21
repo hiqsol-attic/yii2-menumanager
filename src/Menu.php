@@ -120,12 +120,19 @@ class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewConte
         'class' => MenuWidget::class,
     ];
 
+    public static function widget($menuConfig = [], $widgetConfig = [])
+    {
+        $menu = static::create($menuConfig);
+
+        return $menu->run($widgetConfig);
+    }
+
     /**
      * Renders menu widget with given config.
      * @param mixed $config
      * @return string rendered menu
      */
-    public function widget($config = [])
+    public function run($config = [])
     {
         if (!is_array($config)) {
             $config = ['class' => $config];

@@ -43,7 +43,7 @@ class MenuColumn extends DataColumn
             return parent::getDataCellValue($model, $key, $index);
         } else {
             $class = $this->menuClass;
-            return $class::create(['model' => $model])->render(MenuButton::class);
+            return $class::widget(['model' => $model], MenuButton::class);
         }
     }
 }
