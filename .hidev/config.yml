@@ -1,12 +1,9 @@
 package:
     type:           yii2-extension
     name:           yii2-menumanager
-    title:          Menu Manager for Yii2
-    headline:       Yii2 Menu Manager
+    title:          DEPRECATED in favour of hiqdev\yii2-menus
+    headline:       '[DEPRECATED] Yii2 Menu Manager'
     keywords:       yii2, menu, manager
     namespace:      hiqdev\menumanager
     description:    |
-        Features planned to provide:
-
-        - auto loading and assembling menus from extensions
-        - widgets
+        DEPRECATED in favour of [hiqdev\yii2-menus](https://github.com/hiqdev/yii2-menus)

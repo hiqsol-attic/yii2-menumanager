@@ -1,7 +1,7 @@
-Yii2 Menu Manager
-=================
+[DEPRECATED] Yii2 Menu Manager
+==============================
 
-**Menu Manager for Yii2**
+**DEPRECATED in favour of hiqdev\yii2-menus**
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/yii2-menumanager/v/stable)](https://packagist.org/packages/hiqdev/yii2-menumanager)
 [![Total Downloads](https://poser.pugx.org/hiqdev/yii2-menumanager/downloads)](https://packagist.org/packages/hiqdev/yii2-menumanager)
@@ -10,10 +10,7 @@ Yii2 Menu Manager
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/yii2-menumanager.svg)](https://scrutinizer-ci.com/g/hiqdev/yii2-menumanager/)
 [![Dependency Status](https://www.versioneye.com/php/hiqdev:yii2-menumanager/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:yii2-menumanager/dev-master)
 
-Features planned to provide:
-
-- auto loading and assembling menus from extensions
-- widgets
+DEPRECATED in favour of [hiqdev\yii2-menus](https://github.com/hiqdev/yii2-menus)
 
 ## Installation
 

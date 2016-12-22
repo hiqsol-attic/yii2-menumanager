@@ -1,7 +1,7 @@
 {
     "name": "hiqdev/yii2-menumanager",
     "type": "yii2-extension",
-    "description": "Menu Manager for Yii2",
+    "description": "DEPRECATED in favour of hiqdev\\yii2-menus",
     "keywords": [
         "yii2",
         "menu",
