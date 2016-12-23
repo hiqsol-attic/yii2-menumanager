@@ -21,6 +21,8 @@ use hiqdev\menumanager\widgets\Menu as MenuWidget;
  *
  * @property array $add array of menus that will be added to the [[Menu]]
  * @property array $merge array of menus that will be merged into the [[Menu]]
+ *
+ * @author Andrii Vasyliev <sol@hiqdev.com>
  */
 class Menu extends \hiqdev\yii2\collection\Object implements \yii\base\ViewContextInterface
 {
